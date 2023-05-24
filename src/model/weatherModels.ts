@@ -1,4 +1,4 @@
-export interface WeatherData {
+export interface CurrWeather {
   coord: {
     lon: number;
     lat: number;

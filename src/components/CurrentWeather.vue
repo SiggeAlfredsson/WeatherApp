@@ -2,28 +2,31 @@
 
 
 <template>
-  <div class="weather-details">
-    <img :src="getWeatherIconUrl(weatherData.weather[0].icon)" alt="weather icon">
-    <h1>{{ weatherData.name }}, {{ weatherData.sys.country }}</h1>
-    <h2><span>Weather:</span> {{ weatherData.weather[0].main }} </h2>
-    <h2><span>Temperature:</span> {{ Math.round(weatherData.main.temp) }}&deg</h2>
+  <div class="curr-weather-details">
+    <img :src="getWeatherIconUrl(currWeather.weather[0].icon)" alt="weather icon">
+    <h1>{{ currWeather.name }}, {{ currWeather.sys.country }}</h1>
+    <h2><span id="desc">Weather:</span> {{ currWeather.weather[0].main }} </h2>
+    <h2><span id="desc">Temperature:</span> {{ Math.round(currWeather.main.temp) }}&deg</h2>
     
-    <h2><span>Humidity:</span> {{ weatherData.main.humidity }}%</h2>
-    <h2><span>Wind:</span> {{ (weatherData.wind.speed*0.44704).toFixed(1) }} ({{ (weatherData.wind.gust*0.44704).toFixed(1) }}) m/s</h2> <!-- M/s Är det ända rätta måttet på vind... -->
-    <h2><span>Wind deg:</span> {{ weatherData.wind.deg }}&deg </h2>
-    <h2><span>Pressure:</span> {{ weatherData.main.pressure }}</h2>
+    <h2><span id="desc">Humidity:</span> {{ currWeather.main.humidity }}%</h2>
+    <h2>
+      <span id="desc">Wind:</span> {{ (currWeather.wind.speed*0.44704).toFixed(1) }} 
+      <span v-if="!isNaN(currWeather.wind.gust)">({{ (currWeather.wind.gust*0.44704).toFixed(1) }})</span> m/s
+    </h2> <!-- M/s Är det ända rätta måttet på vind... -->
+    <h2><span id="desc">Wind deg:</span> {{ currWeather.wind.deg }}&deg </h2>
+    <h2><span id="desc">Pressure:</span> {{ currWeather.main.pressure }}</h2>
   </div>
 </template>
 
 <script lang="ts">
-import type { WeatherData } from '@/model/weatherModels';
+import type { CurrWeather } from '@/model/weatherModels';
 
 
 export default {
-  name: 'WeatherDetails',
+  name: "CurrWeatherDetails",
   props: {
-    weatherData: {
-      type: Object as () => WeatherData,
+    currWeather: {
+      type: Object as () => CurrWeather,
       required: true
     }
   },
@@ -39,17 +42,22 @@ methods: {
 <style>
 body {
   padding: 30px;
-  border: black 1px solid;
+  /* border: red 1px solid; */
 
 }
 
-.weather-details {
-  border: black 1px solid;
+.curr-weather-details {
+  /* border: red 1px solid; */
+  padding: 20px;
+  margin: 10px;
 
+  background-color: rgb(0, 173, 181);
+  border-radius: 30px;
+  width: 65%;
 }
 
-span{
-  color: #999;
+#desc {
+  color: rgb(238, 238, 238);
 }
 </style>
 
