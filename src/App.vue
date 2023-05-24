@@ -3,7 +3,7 @@
 <template>
   <div class="app-container">
 
-    <h1 class="title">Bussin</h1>
+    <h1 class="title">Storm Crusher</h1>
 
 
     <WeatherSearch @search="searchWeather" />
