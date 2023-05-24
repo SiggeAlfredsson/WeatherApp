@@ -28,4 +28,4 @@ coverage
 *.sw?
 
 
-src/service/config.ts
+# src/service/config.ts
