@@ -2,6 +2,9 @@
 
 School project
 
+## Demo
+https://siggealfredsson.github.io/WeatherApp/
+
 ## Project Setup
 
 ```sh
