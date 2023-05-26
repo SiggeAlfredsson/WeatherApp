@@ -12,7 +12,7 @@
       <ul>
         <li v-for="string in searchHistory" :key="string">
           <button id="history-button" @click="searchWeather(string.slice(0, -4))">{{ string }}</button>
-          <!--slice tar bot ", SE" (landkoden) -->
+          <!--slice tar bot ", SE" (landkoden) PÅ NÄSTA SÖK -->
         </li>
       </ul>
     </div>
@@ -39,6 +39,9 @@ export default {
       searchQuery: '',
       searchHistory: [] as string[],
     };
+  },
+  mounted() {
+    this.loadSearchHistory();
   },
   methods: {
     searchWeather(query: string) {
@@ -71,7 +74,16 @@ export default {
         // console.log("SPLICE")
         this.searchHistory.splice(3, 1)
       }
+      localStorage.setItem("searchHistory", JSON.stringify(this.searchHistory));
       // console.log(this.searchHistory)
+    },
+    loadSearchHistory() {
+      const searchHistory = localStorage.getItem("searchHistory");
+      if (searchHistory) {
+        this.searchHistory = JSON.parse(searchHistory);
+      }
+
+
     }
   }
 }
