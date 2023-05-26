@@ -1,6 +1,12 @@
-# weather app - uppgift2
+#
+DEMO
+https://siggealfredsson.github.io/WeatherApp/
 
-School project
+## weather app - uppgift2
+
+School project in typescript with vue.js/vite 
+
+-- branch only for submission to teacher
 
 ## Demo
 https://siggealfredsson.github.io/WeatherApp/
