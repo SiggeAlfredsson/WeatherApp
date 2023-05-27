@@ -6,6 +6,8 @@ https://siggealfredsson.github.io/WeatherApp/
 
 School project in typescript with vue.js/vite 
 
+Branch only for submission to school. 
+
 
 ### Project Setup
 
