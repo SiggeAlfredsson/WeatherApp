@@ -68,8 +68,13 @@ export default {
         })
     },
     updateSearchHistory(query: string) {
-      //  Göra så inga dupes i array?
+      //  Göra så inga dupes i array? Done!
+      if (this.searchHistory.includes(query)) {
+        // console.log(this.searchHistory.includes(query))
+        this.searchHistory.splice(this.searchHistory.indexOf(query));
+      }
       this.searchHistory.unshift(query); //som push fast istället för slutet av array så pushar den i början  ||
+
       if (this.searchHistory.length > 3) {
         // console.log("SPLICE")
         this.searchHistory.splice(3, 1)
@@ -91,8 +96,6 @@ export default {
 </script>
 
 <style>
-
-
 .title {
   padding: 0px;
   margin: 0px;
