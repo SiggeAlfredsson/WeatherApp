@@ -6,6 +6,9 @@ https://siggealfredsson.github.io/WeatherApp/
 
 School project in typescript with vue.js/vite 
 
+Known bugs: None, but the api is not so good with smaller cities.
+Could add: Pin users location with button.
+
 
 ### Project Setup
 
